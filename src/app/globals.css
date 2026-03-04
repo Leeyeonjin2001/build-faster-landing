@@ -1,15 +1,10 @@
 @import "tailwindcss";
-@import '../styles/tokens.css';
 
 @theme inline {
-  --color-background: var(--color-bg-page);
-  --color-foreground: var(--color-text-primary);
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
 body {
-  background: var(--color-bg-page);
-  color: var(--color-text-primary);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
