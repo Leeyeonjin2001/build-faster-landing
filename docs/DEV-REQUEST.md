@@ -19,6 +19,7 @@
 | DEV-009 | 운영비 섹션 톤 변경 | 🔵 완료 | 2026-03-04 |
 | DEV-010 | 고객 이야기 카드 높이 통일 | 🔵 완료 | 2026-03-04 |
 | DEV-011 | 데모 샘플 바둑판 그리드 전환 | 🔵 완료 | 2026-03-04 |
+| DEV-015 | 프로젝트 체계 정비 | 🔵 완료 | 2026-03-04 |
 | DEV-012 | 쿠키 동의 배너 구현 | 📋 대기 | — |
 | DEV-013 | 날짜 예약 시스템 임베드 | 📋 대기 | — |
 | DEV-014 | 이메일 자동화 연동 | 📋 대기 | — |
@@ -79,6 +80,13 @@
 ### DEV-011: 데모 샘플 바둑판 그리드 🔵
 - lg:grid-cols-4 → lg:grid-cols-3 (모바일 1열, 태블릿 2열, PC 3열)
 
+### DEV-015: 프로젝트 체계 정비 🔵
+- **훅 5개 생성** (hooks/): run-all, check-security, check-structure, check-links, check-format
+- **문서 4개 생성** (docs/): QA.md, WORKFLOW.md, RELEASE-CHECKLIST.md, SECURITY-CHECKLIST.md
+- **ESLint 에러 수정**: ai-webnovel `<a>` → `<Link>` (4건), page.tsx 미사용 변수 제거 (1건)
+- **에이전틱 훅 설정**: PostToolUse (ESLint 자동 체크) + PreToolUse (커밋 전 검증)
+- hooks 결과: ✅18 ⚠️3 ❌0
+
 ---
 
 ## 대기 중인 DEV 상세
@@ -114,6 +122,9 @@
 |------|------|------|
 | cf155db | Initial commit: 랜딩 페이지 | 2026-03-04 |
 | bf637b3 | AI 웹소설 케이스 + Trust Bar + 프로세스 순서 | 2026-03-04 |
+| 589c6d9 | PRD v2.0 + DEV-REQUEST 정리 / 가격·후기 카드 개선 | 2026-03-04 |
+| 645c49a | 프로젝트 체계 정비 — hooks, QA/워크플로우 문서 추가 | 2026-03-04 |
+| 61f6329 | 에이전틱 훅 설정 — ESLint 자동 체크 + 커밋 전 검증 | 2026-03-04 |
 
 **리모트:**
 - origin: https://github.com/Leeyeonjin2001/build-faster-landing
