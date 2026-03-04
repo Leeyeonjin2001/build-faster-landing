@@ -1161,7 +1161,7 @@ function ProcessSystem() {
           <div className="hidden lg:block absolute top-8 left-0 right-0 h-0.5 bg-gray-200" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {steps.map((s, i) => (
+            {steps.map((s) => (
               <div key={s.num} className="relative text-center">
                 {/* 넘버 원 */}
                 <div className="relative z-10 w-16 h-16 rounded-full bg-gray-900 text-white flex items-center justify-center text-lg font-black mx-auto mb-4">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "AI 웹소설 어시스턴트 구축 사례 | BUILD FASTER",
@@ -20,15 +21,15 @@ export default function AIWebnovelCase() {
       {/* ─── 네비게이션 ─── */}
       <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-gray-100 z-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <a href="/" className="text-lg font-extrabold text-gray-900 tracking-tight">
+          <Link href="/" className="text-lg font-extrabold text-gray-900 tracking-tight">
             BUILD FASTER
-          </a>
-          <a
+          </Link>
+          <Link
             href="/#contact"
             className="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
           >
             무료 상담 예약 →
-          </a>
+          </Link>
         </div>
       </nav>
 
@@ -379,18 +380,18 @@ export default function AIWebnovelCase() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
+            <Link
               href="/#contact"
               className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white text-base font-bold rounded-xl hover:bg-blue-700 transition-colors"
             >
               무료 상담 예약하기
-            </a>
-            <a
+            </Link>
+            <Link
               href="/"
               className="inline-flex items-center justify-center px-8 py-4 bg-gray-100 text-gray-700 text-base font-bold rounded-xl hover:bg-gray-200 transition-colors"
             >
               ← 홈으로 돌아가기
-            </a>
+            </Link>
           </div>
         </div>
       </section>
