@@ -87,7 +87,7 @@ function Hero() {
         <p className="text-lg sm:text-xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed">
           해결하고 싶은 문제가 있으신가요? 만들고 싶은 서비스가 있으신가요?
           <br className="hidden sm:block" />
-          <strong className="text-gray-900">30분 미팅 한 번</strong>이면 됩니다.
+          <strong className="text-gray-900">AI와 전문가가 함께</strong> 분석하고, 설계하고, 만듭니다.
           <br className="hidden sm:block" />
           견적서가 아니라, <strong className="text-gray-900">3일 안에 작동하는 데모</strong>를 보여드립니다.
         </p>
@@ -104,6 +104,36 @@ function Hero() {
           >
             어떻게 진행되나요?
           </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   Trust Bar — 신뢰 지표
+   ───────────────────────────────────────────── */
+function TrustBar() {
+  return (
+    <section className="py-6 bg-gray-50 border-y border-gray-100">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-gray-400">
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+            <span><strong className="text-gray-600">AI + 전문가</strong>가 함께 만듭니다</span>
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+            <span><strong className="text-gray-600">4년간</strong> 다수 서비스 구축</span>
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+            <span><strong className="text-gray-600">Microsoft</strong> MOU 체결</span>
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+            <span><strong className="text-gray-600">MILA</strong> AI 연구기관 MOU 체결</span>
+          </span>
         </div>
       </div>
     </section>
@@ -206,7 +236,9 @@ function Funnel() {
             문제와 만들고 싶은 것을 알려주세요
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            저희가 분석한 후, 상황에 맞는 단계별 솔루션을 제공합니다.
+            전문가가 직접 분석하고, AI로 빠르게 만듭니다.
+            <br className="hidden sm:block" />
+            도구가 아니라 <strong className="text-gray-900">사람이 설계</strong>합니다.
           </p>
         </div>
 
@@ -217,7 +249,7 @@ function Funnel() {
           </div>
           <span className="text-gray-300 text-lg">→</span>
           <div className="bg-blue-50 text-blue-700 text-sm font-semibold px-4 py-2 rounded-full">
-            분석
+            전문가 분석
           </div>
           <span className="text-gray-300 text-lg">→</span>
           <div className="bg-gray-100 text-gray-700 text-sm font-semibold px-4 py-2 rounded-full">
@@ -601,6 +633,7 @@ function DemoSamples() {
       solution: "온라인 예약 + 카카오 알림톡 자동 발송",
       tech: "Next.js · Supabase · 알림톡 API",
       duration: "5일 완성",
+      href: "",
     },
     {
       title: "스타트업 고객 관리 대시보드",
@@ -608,6 +641,7 @@ function DemoSamples() {
       solution: "실시간 대시보드 + 자동 리포트 생성",
       tech: "Next.js · Supabase · Chart.js",
       duration: "6일 완성",
+      href: "",
     },
     {
       title: "온라인 클래스 플랫폼",
@@ -615,6 +649,15 @@ function DemoSamples() {
       solution: "수강 신청 + 결제 + 수강생 관리 자동화",
       tech: "Next.js · Supabase · 토스페이먼츠",
       duration: "7일 완성",
+      href: "",
+    },
+    {
+      title: "AI 웹소설 어시스턴트",
+      problem: "AI가 스토리 맥락을 기억 못해 검증에 더 많은 시간 소요",
+      solution: "세계관 구조 분리 + 환각 추적 시스템 구축",
+      tech: "Claude AI · 마크다운 · 프로젝트 구조화",
+      duration: "3일 완성",
+      href: "/cases/ai-webnovel",
     },
   ];
 
@@ -631,40 +674,54 @@ function DemoSamples() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {demos.map((demo) => (
-            <article key={demo.title} className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all group">
-              {/* 스크린샷 영역 */}
-              <div className="aspect-video bg-gray-100 relative overflow-hidden">
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-300 p-4">
-                  <svg className="w-10 h-10 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <span className="text-xs">스크린샷 준비중</span>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">{demo.title}</h3>
-
-                <div className="space-y-3 mb-4">
-                  <div>
-                    <div className="text-xs font-semibold text-red-500 mb-0.5">문제</div>
-                    <p className="text-sm text-gray-500">{demo.problem}</p>
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-green-600 mb-0.5">해결</div>
-                    <p className="text-sm text-gray-500">{demo.solution}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {demos.map((demo) => {
+            const Wrapper = demo.href ? "a" : "div";
+            const wrapperProps = demo.href ? { href: demo.href } : {};
+            return (
+              <Wrapper
+                key={demo.title}
+                {...wrapperProps}
+                className={`bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all group flex flex-col ${demo.href ? "cursor-pointer" : ""}`}
+              >
+                {/* 스크린샷 영역 */}
+                <div className="aspect-video bg-gray-100 relative overflow-hidden">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-300 p-4">
+                    <svg className="w-10 h-10 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <span className="text-xs">스크린샷 준비중</span>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-gray-100">
-                  <span>{demo.tech}</span>
-                  <span className="font-semibold text-blue-600">{demo.duration}</span>
+                <div className="p-6 flex flex-col flex-1">
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">{demo.title}</h3>
+
+                  <div className="space-y-3 mb-4 flex-1">
+                    <div>
+                      <div className="text-xs font-semibold text-red-500 mb-0.5">문제</div>
+                      <p className="text-sm text-gray-500">{demo.problem}</p>
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold text-green-600 mb-0.5">해결</div>
+                      <p className="text-sm text-gray-500">{demo.solution}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-gray-100 mt-auto">
+                    <span>{demo.tech}</span>
+                    <span className="font-semibold text-blue-600">{demo.duration}</span>
+                  </div>
+
+                  {demo.href && (
+                    <div className="mt-3 text-xs font-semibold text-blue-600 group-hover:text-blue-700 transition-colors">
+                      자세히 보기 →
+                    </div>
+                  )}
                 </div>
-              </div>
-            </article>
-          ))}
+              </Wrapper>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -739,6 +796,7 @@ function Testimonials() {
   const reviews = [
     {
       type: "문제는 아는데 어떻게 할지 몰랐던",
+      tag: "매장 예약 시스템",
       name: "김OO",
       role: "카페 운영",
       quote:
@@ -746,19 +804,35 @@ function Testimonials() {
     },
     {
       type: "배울 시간이 없었던",
+      tag: "고객 관리 대시보드",
       name: "박OO",
       role: "스타트업 대표",
       quote:
         "바이브코딩 해보려고 유튜브도 봤는데, 배우고 구조 잡고 직접 만들 시간이 없었어요. 본업이 있으니까. 여기는 내가 설명만 하면 됩니다. 그것도 30분이면 끝.",
     },
     {
+      type: "구조를 바꾸고 스스로 성장한",
+      tag: "AI 글쓰기 환경 구축",
+      name: "김OO",
+      role: "웹소설 작가",
+      quote:
+        "AI가 자꾸 주인공 과거를 새로 만들어서 내용 검증하는 데 시간이 더 걸렸어요. 구조 바꾸고 나서 지금은 혼자 계속 고도화하고 있습니다.",
+    },
+    {
       type: "하다가 막혀서 온",
+      tag: "커머스 앱",
       name: "이OO",
       role: "1인 기업",
       quote:
         "혼자 커서로 반쯤 만들었는데 DB 연동에서 완전 막혔어요. 여기서 이어받아서 3일 만에 끝내줬습니다. 운영비가 월 만원도 안 든다는 게 제일 좋았어요.",
     },
   ];
+
+  const perPage = 3;
+  const totalPages = Math.ceil(reviews.length / perPage);
+  const [page, setPage] = useState(0);
+
+  const visibleReviews = reviews.slice(page * perPage, page * perPage + perPage);
 
   return (
     <section className="py-20 sm:py-28 bg-gray-50">
@@ -770,17 +844,23 @@ function Testimonials() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {reviews.map((r) => (
-            <article key={r.name} className="bg-white rounded-2xl p-8 border border-gray-200">
-              <div className="text-xs font-bold text-blue-600 mb-4 px-3 py-1 bg-blue-50 rounded-full inline-block">
-                {r.type}
+        {/* 카드 3개 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+          {visibleReviews.map((r, i) => (
+            <article key={`${r.name}-${page}-${i}`} className="bg-white rounded-2xl p-8 border border-gray-200 flex flex-col h-full">
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="text-xs font-bold text-blue-600 px-3 py-1 bg-blue-50 rounded-full">
+                  {r.type}
+                </span>
+                <span className="text-xs font-bold text-gray-500 px-3 py-1 bg-gray-100 rounded-full">
+                  {r.tag}
+                </span>
               </div>
-              <blockquote className="text-gray-700 leading-relaxed mb-6">
+              <blockquote className="text-gray-700 leading-relaxed mb-6 flex-1">
                 &ldquo;{r.quote}&rdquo;
               </blockquote>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-sm font-bold text-gray-400">
+              <div className="flex items-center gap-3 mt-auto pt-4 border-t border-gray-100">
+                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-sm font-bold text-gray-400 shrink-0">
                   {r.name[0]}
                 </div>
                 <div>
@@ -791,6 +871,46 @@ function Testimonials() {
             </article>
           ))}
         </div>
+
+        {/* 슬라이드 네비게이션 */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-4 mt-8">
+            <button
+              onClick={() => setPage((p) => Math.max(0, p - 1))}
+              disabled={page === 0}
+              className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-gray-900 hover:border-gray-400 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              aria-label="이전"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            <div className="flex gap-2">
+              {Array.from({ length: totalPages }).map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setPage(idx)}
+                  className={`w-2.5 h-2.5 rounded-full transition-colors ${
+                    page === idx ? "bg-gray-900" : "bg-gray-300"
+                  }`}
+                  aria-label={`${idx + 1}페이지`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+              disabled={page === totalPages - 1}
+              className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-gray-900 hover:border-gray-400 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              aria-label="다음"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -970,6 +1090,106 @@ function FAQ() {
 }
 
 /* ─────────────────────────────────────────────
+   S8.5. Process System — 프로세스 시스템 레이아웃
+   ───────────────────────────────────────────── */
+function ProcessSystem() {
+  const steps = [
+    {
+      num: "01",
+      title: "프로젝트 의뢰",
+      desc: "상담 폼 작성 또는 온라인 미팅. 문제와 원하는 것을 알려주세요.",
+      status: "고객",
+    },
+    {
+      num: "02",
+      title: "분석 + 견적",
+      desc: "문제 분석 후 범위·기간·비용을 투명하게 산출합니다.",
+      status: "BUILD FASTER",
+    },
+    {
+      num: "03",
+      title: "계약 + 착수",
+      desc: "온라인 전자계약. 분할 결제 가능. 합의된 범위로 개발 시작.",
+      status: "양측 합의",
+    },
+    {
+      num: "04",
+      title: "개발 + 공유",
+      desc: "실시간 진행 상황 공유. 데모 확인 후 피드백 반영.",
+      status: "BUILD FASTER",
+    },
+    {
+      num: "05",
+      title: "납품 + 리포트",
+      desc: "완성된 서비스 + 프로젝트 리포트 + 코드 인수인계.",
+      status: "완료",
+    },
+  ];
+
+  return (
+    <section className="py-20 sm:py-28 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <p className="text-sm font-bold text-blue-600 tracking-wide uppercase mb-3">프로세스</p>
+          <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
+            의뢰부터 납품까지, 100% 온라인
+          </h2>
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+            모든 과정이 투명하게 공유됩니다. 진행 상황을 직접 확인하세요.
+          </p>
+        </div>
+
+        {/* 프로세스 타임라인 */}
+        <div className="relative">
+          {/* 연결선 (데스크톱) */}
+          <div className="hidden lg:block absolute top-8 left-0 right-0 h-0.5 bg-gray-200" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            {steps.map((s, i) => (
+              <div key={s.num} className="relative text-center">
+                {/* 넘버 원 */}
+                <div className="relative z-10 w-16 h-16 rounded-full bg-gray-900 text-white flex items-center justify-center text-lg font-black mx-auto mb-4">
+                  {s.num}
+                </div>
+                <h4 className="font-bold text-gray-900 mb-1">{s.title}</h4>
+                <p className="text-xs text-gray-500 leading-relaxed mb-2">{s.desc}</p>
+                <span className={`text-xs font-semibold px-2 py-1 rounded-full ${
+                  s.status === "고객" ? "bg-blue-50 text-blue-600" :
+                  s.status === "BUILD FASTER" ? "bg-gray-100 text-gray-600" :
+                  s.status === "양측 합의" ? "bg-indigo-50 text-indigo-600" :
+                  "bg-green-50 text-green-600"
+                }`}>
+                  {s.status}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 시스템 미리보기 (Coming Soon) */}
+        <div className="mt-16 bg-gray-50 rounded-2xl border border-gray-200 p-8 text-center">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-xl bg-gray-900 text-white flex items-center justify-center">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-bold text-gray-900">고객 대시보드</h3>
+          </div>
+          <p className="text-sm text-gray-500 mb-6 max-w-lg mx-auto">
+            프로젝트 진행 상황, 마일스톤, 피드백, 결제 내역을 한 곳에서 확인할 수 있는 고객 전용 대시보드를 준비 중입니다.
+          </p>
+          <div className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-500">
+            <div className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse" />
+            Coming Soon
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────
    S9. Contact / CTA
    ───────────────────────────────────────────── */
 function Contact() {
@@ -1084,8 +1304,10 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
+      <TrustBar />
       <PainPoints />
       <Funnel />
+      <ProcessSystem />
       <Deliverables />
       <DemoSamples />
       <CostTransparency />
