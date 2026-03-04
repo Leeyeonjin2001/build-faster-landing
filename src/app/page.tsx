@@ -743,7 +743,7 @@ function CostTransparency() {
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
             아무리 좋은 서비스를 만들어도, 유지비가 비싸면 의미 없습니다.
             <br className="hidden sm:block" />
-            처음부터 <strong className="text-gray-900">무료 티어를 최대한 활용</strong>하는 구조로 설계합니다.
+            고객 상황에 맞춰 <strong className="text-gray-900">최적의 운영 비용 구조</strong>로 설계합니다.
           </p>
         </div>
 
@@ -775,14 +775,14 @@ function CostTransparency() {
               <tr>
                 <td className="px-6 py-4 text-gray-900 font-medium">월 예상 합계</td>
                 <td className="px-6 py-4 text-red-500 font-bold">38~140만원</td>
-                <td className="px-6 py-4 font-black text-green-600 text-lg bg-blue-50/50">0~3만원</td>
+                <td className="px-6 py-4 font-black text-green-600 text-lg bg-blue-50/50">고객 맞춤 최적화</td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <p className="text-center text-sm text-gray-400 mt-4">
-          * 프로젝트 규모와 사용량에 따라 달라질 수 있습니다. 정확한 비용은 프로젝트 리포트에 포함됩니다.
+          * 프로젝트 규모와 상황에 따라 최적의 구조가 다릅니다. 상세 운영비는 프로젝트 리포트에 포함됩니다.
         </p>
       </div>
     </section>
@@ -856,7 +856,7 @@ function Testimonials() {
                   {r.tag}
                 </span>
               </div>
-              <blockquote className="text-gray-700 leading-relaxed mb-6 flex-1">
+              <blockquote className="text-gray-700 leading-relaxed mb-6 flex-1 min-h-[100px]">
                 &ldquo;{r.quote}&rdquo;
               </blockquote>
               <div className="flex items-center gap-3 mt-auto pt-4 border-t border-gray-100">
@@ -922,6 +922,20 @@ function Testimonials() {
 function Pricing() {
   const plans = [
     {
+      name: "컨설팅",
+      price: "10만원",
+      period: "1~2일",
+      features: [
+        "요구사항 분석 및 방향성 제공",
+        "개발하다 막힌 부분 체크",
+        "앱/웹 배포 지원",
+        "기술 스택 추천",
+        "PRD + 실행 플랜 문서 제공",
+      ],
+      highlighted: false,
+      tag: "",
+    },
+    {
       name: "웹 MVP",
       price: "150만원",
       period: "1주 완성",
@@ -934,6 +948,7 @@ function Pricing() {
         "프로젝트 리포트 포함",
       ],
       highlighted: false,
+      tag: "",
     },
     {
       name: "앱 MVP",
@@ -948,46 +963,47 @@ function Pricing() {
         "프로젝트 리포트 포함",
       ],
       highlighted: true,
+      tag: "인기",
     },
   ];
 
   return (
     <section id="pricing" className="py-20 sm:py-28 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <p className="text-sm font-bold text-blue-600 tracking-wide uppercase mb-3">가격</p>
           <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">고정 가격. 추가 비용 없음.</h2>
           <p className="text-lg text-gray-500">복잡한 견적 과정 없이, 가격이 곧 신뢰입니다.</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`rounded-2xl p-8 border-2 transition-all ${
+              className={`rounded-2xl p-10 border-2 transition-all flex flex-col ${
                 plan.highlighted
                   ? "border-gray-900 bg-gray-900 text-white shadow-xl"
                   : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-lg"
               }`}
             >
-              {plan.highlighted && (
-                <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">인기</div>
+              {plan.tag && (
+                <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-5">{plan.tag}</div>
               )}
-              <h3 className={`text-2xl font-bold mb-2 ${plan.highlighted ? "text-white" : "text-gray-900"}`}>
+              <h3 className={`text-2xl font-bold mb-3 ${plan.highlighted ? "text-white" : "text-gray-900"}`}>
                 {plan.name}
               </h3>
-              <div className="flex items-baseline gap-2 mb-1">
-                <span className={`text-4xl font-black ${plan.highlighted ? "text-white" : "text-gray-900"}`}>
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className={`text-5xl font-black ${plan.highlighted ? "text-white" : "text-gray-900"}`}>
                   {plan.price}
                 </span>
               </div>
-              <p className={`text-sm mb-8 ${plan.highlighted ? "text-gray-400" : "text-gray-500"}`}>
+              <p className={`text-sm mb-10 ${plan.highlighted ? "text-gray-400" : "text-gray-500"}`}>
                 {plan.period}
               </p>
 
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-4 mb-10 flex-1">
                 {plan.features.map((f) => (
-                  <li key={f} className={`flex items-start gap-3 text-sm ${plan.highlighted ? "text-gray-300" : "text-gray-600"}`}>
+                  <li key={f} className={`flex items-start gap-3 text-base ${plan.highlighted ? "text-gray-300" : "text-gray-600"}`}>
                     <svg className={`w-5 h-5 shrink-0 mt-0.5 ${plan.highlighted ? "text-green-400" : "text-green-500"}`} fill="currentColor" viewBox="0 0 20 20">
                       <path
                         fillRule="evenodd"
@@ -1002,7 +1018,7 @@ function Pricing() {
 
               <a
                 href="#contact"
-                className={`block text-center py-3 rounded-xl font-semibold transition-colors ${
+                className={`block text-center py-4 rounded-xl text-lg font-semibold transition-colors mt-auto ${
                   plan.highlighted
                     ? "bg-white text-gray-900 hover:bg-gray-100"
                     : "bg-gray-900 text-white hover:bg-gray-800"
