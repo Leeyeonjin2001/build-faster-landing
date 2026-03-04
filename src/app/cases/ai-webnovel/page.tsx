@@ -136,23 +136,77 @@ export default function AIWebnovelCase() {
 
           <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
             <h3 className="font-bold text-gray-900 mb-6 text-center">AI 기억력 패턴</h3>
-            <div className="flex items-end justify-between gap-2 h-32 mb-4 px-4">
-              {/* 시각화: 기억 강도 바 차트 */}
-              {[85, 70, 45, 30, 25, 20, 25, 35, 50, 75, 90].map((h, i) => (
-                <div key={i} className="flex-1 flex flex-col items-center gap-1">
-                  <div
-                    className={`w-full rounded-t-sm transition-all ${
-                      h < 40 ? "bg-red-400" : h < 60 ? "bg-yellow-400" : "bg-blue-400"
-                    }`}
-                    style={{ height: `${h}%` }}
-                  />
+            <div className="flex gap-6 items-stretch">
+              {/* 좌측: PDF 목업 */}
+              <div className="flex-1 bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+                {/* PDF 탑바 */}
+                <div className="bg-gray-100 px-4 py-2 flex items-center gap-2 border-b border-gray-200">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                  <span className="ml-3 text-xs text-gray-400">worldbuilding-doc.pdf</span>
                 </div>
-              ))}
-            </div>
-            <div className="flex justify-between text-xs text-gray-400 px-4">
-              <span>← 입력 처음</span>
-              <span className="text-red-500 font-semibold">중간 (정보 손실)</span>
-              <span>입력 끝 →</span>
+                {/* 문서 내용 — 세로 3구간 */}
+                <div className="p-5 space-y-0">
+                  {/* 문서 시작 — 잘 기억 */}
+                  <div className="border-l-4 border-blue-400 bg-blue-50/50 px-4 py-3 rounded-r-lg">
+                    <div className="text-xs font-bold text-blue-600 mb-1">문서 시작</div>
+                    <div className="space-y-1.5">
+                      <div className="h-2 bg-blue-200 rounded w-full" />
+                      <div className="h-2 bg-blue-200 rounded w-4/5" />
+                      <div className="h-2 bg-blue-200 rounded w-11/12" />
+                    </div>
+                    <div className="text-xs text-blue-500 mt-2 font-medium">기억률 85~90%</div>
+                  </div>
+
+                  {/* 문서 중간 — 정보 손실 */}
+                  <div className="border-l-4 border-red-400 bg-red-50/50 px-4 py-5 rounded-r-lg my-1">
+                    <div className="text-xs font-bold text-red-500 mb-1">문서 중간</div>
+                    <div className="space-y-1.5">
+                      <div className="h-2 bg-red-200 rounded w-full opacity-60" />
+                      <div className="h-2 bg-red-200 rounded w-3/4 opacity-40" />
+                      <div className="h-2 bg-red-100 rounded w-5/6 opacity-30" />
+                      <div className="h-2 bg-red-100 rounded w-2/3 opacity-20" />
+                      <div className="h-2 bg-red-200 rounded w-4/5 opacity-30" />
+                    </div>
+                    <div className="text-xs text-red-500 mt-2 font-medium">기억률 20~30% — 정보 손실 구간</div>
+                  </div>
+
+                  {/* 문서 끝 — 잘 기억 */}
+                  <div className="border-l-4 border-blue-400 bg-blue-50/50 px-4 py-3 rounded-r-lg">
+                    <div className="text-xs font-bold text-blue-600 mb-1">문서 끝</div>
+                    <div className="space-y-1.5">
+                      <div className="h-2 bg-blue-200 rounded w-11/12" />
+                      <div className="h-2 bg-blue-200 rounded w-full" />
+                      <div className="h-2 bg-blue-200 rounded w-4/5" />
+                    </div>
+                    <div className="text-xs text-blue-500 mt-2 font-medium">기억률 75~90%</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 우측: 설명 */}
+              <div className="flex-1 flex flex-col justify-between py-2">
+                <div className="bg-blue-50 rounded-xl p-4 border border-blue-100">
+                  <div className="text-xs font-bold text-blue-600 mb-1">처음</div>
+                  <p className="text-xs text-blue-700 leading-relaxed">
+                    AI가 가장 잘 기억하는 구간. 세계관 기본 설정, 주인공 이름 등은 여기에 넣으면 유지됨.
+                  </p>
+                </div>
+                <div className="bg-red-50 rounded-xl p-4 border border-red-100">
+                  <div className="text-xs font-bold text-red-500 mb-1">중간 — Lost In the Middle</div>
+                  <p className="text-xs text-red-600 leading-relaxed">
+                    세계관 규칙, 캐릭터 관계, 복선 등이 여기에 묻히면 AI가 &quot;잊어버린 것처럼&quot; 행동.
+                    환각(Hallucination)의 주요 원인.
+                  </p>
+                </div>
+                <div className="bg-blue-50 rounded-xl p-4 border border-blue-100">
+                  <div className="text-xs font-bold text-blue-600 mb-1">끝</div>
+                  <p className="text-xs text-blue-700 leading-relaxed">
+                    최근 대화 내용. AI가 잘 기억하지만, 과거 설정과 충돌하는 내용을 만들어내기도 함.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 

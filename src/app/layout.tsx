@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import DevTools from "@/components/DevTools";
 
 export const metadata: Metadata = {
   title: "BUILD FASTER — 당신의 문제를 1주일 안에 해결합니다",
@@ -179,7 +180,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <DevTools />
+      </body>
     </html>
   );
 }

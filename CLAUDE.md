@@ -30,13 +30,13 @@
 ```
 src/
   app/
-    page.tsx          ← 랜딩 페이지 메인
-    layout.tsx        ← 레이아웃
-    globals.css       ← Tailwind + 토큰 import
-  styles/
-    tokens.css        ← Blast 2 디자인 토큰
-    components.css    ← 공통 컴포넌트 (보완용)
-  components/         ← 섹션 컴포넌트
+    page.tsx              ← 랜딩 페이지 메인
+    layout.tsx            ← 레이아웃 + JSON-LD
+    globals.css           ← Tailwind import
+    cases/ai-webnovel/
+      page.tsx            ← AI 웹소설 케이스 스터디
+  components/
+    DevTools.tsx          ← Agentation 래퍼 (개발 전용)
 ```
 
 ---
@@ -64,7 +64,7 @@ Font Family:       Inter
 - **Tailwind 유틸리티 클래스 사용** — 인라인 style 금지
 - **색상은 Tailwind 클래스로** — `text-blue-600`, `bg-gray-50` 등
 - **다크 모드 없음** — 라이트 모드만
-- **커스텀이 필요하면** `tokens.css`의 CSS 변수 사용
+- **커스텀이 필요하면** Tailwind 설정 또는 globals.css에 CSS 변수 추가
 
 ---
 

@@ -58,7 +58,8 @@ fi
 # 3. 인라인 style 사용 체크 (Tailwind 프로젝트에서는 지양)
 echo -n "[3] 인라인 style 사용... "
 INLINE_STYLES=$(grep -rn 'style={{' --include="*.tsx" --include="*.ts" src/ 2>/dev/null | grep -v "node_modules" || true)
-INLINE_COUNT=$(echo "$INLINE_STYLES" | grep -c "style={{" 2>/dev/null || echo "0")
+INLINE_COUNT=$(echo "$INLINE_STYLES" | grep -c "style={{" 2>/dev/null)
+INLINE_COUNT=${INLINE_COUNT:-0}
 if [ "$INLINE_COUNT" -eq 0 ] || [ -z "$INLINE_STYLES" ]; then
   echo "✅ PASS"
   ((PASS++))

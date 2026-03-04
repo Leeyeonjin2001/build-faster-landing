@@ -72,11 +72,6 @@ function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center bg-white pt-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        {/* 캐릭터/프로필 자리 */}
-        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gray-900 mx-auto mb-8 flex items-center justify-center">
-          <span className="text-white text-2xl sm:text-3xl font-black">YJ</span>
-        </div>
-
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6 tracking-tight">
           당신의 문제,
           <br />
@@ -555,7 +550,7 @@ function Deliverables() {
         </div>{/* /좌측 끝 */}
 
         {/* 우측: 포함 항목 (2/5) */}
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4 lg:pt-[74px]">
           <h3 className="text-lg font-bold text-gray-900 mb-2">모든 프로젝트에 포함</h3>
           {[
             {
@@ -847,7 +842,7 @@ function Testimonials() {
         {/* 카드 3개 */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {visibleReviews.map((r, i) => (
-            <article key={`${r.name}-${page}-${i}`} className="bg-white rounded-2xl p-8 border border-gray-200 flex flex-col h-full">
+            <article key={`${r.name}-${page}-${i}`} className="bg-white rounded-2xl p-8 border border-gray-200 flex flex-col min-h-[320px]">
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className="text-xs font-bold text-blue-600 px-3 py-1 bg-blue-50 rounded-full">
                   {r.type}
@@ -1109,38 +1104,47 @@ function FAQ() {
    S8.5. Process System — 프로세스 시스템 레이아웃
    ───────────────────────────────────────────── */
 function ProcessSystem() {
+  const [activeStep, setActiveStep] = useState(0);
+
   const steps = [
     {
       num: "01",
       title: "프로젝트 의뢰",
       desc: "상담 폼 작성 또는 온라인 미팅. 문제와 원하는 것을 알려주세요.",
       status: "고객",
+      detail: "30분 무료 미팅으로 시작합니다. 기술 지식은 필요 없어요. 해결하고 싶은 문제, 만들고 싶은 것을 편하게 말씀해 주세요. 미팅 후 3일 안에 작동하는 데모를 보여드립니다.",
     },
     {
       num: "02",
       title: "분석 + 견적",
       desc: "문제 분석 후 범위·기간·비용을 투명하게 산출합니다.",
       status: "BUILD FASTER",
+      detail: "전문가가 문제를 구조화하고 최적의 기술 스택을 선정합니다. 범위·기간·비용을 투명하게 산출한 견적서를 전달드리며, 이 견적서 자체가 기획서 역할을 합니다.",
     },
     {
       num: "03",
       title: "계약 + 착수",
       desc: "온라인 전자계약. 분할 결제 가능. 합의된 범위로 개발 시작.",
       status: "양측 합의",
+      detail: "온라인 전자계약으로 간편하게 진행합니다. 분할 결제가 가능하며, 합의된 범위·일정·비용대로만 개발합니다. 추가 비용이 발생하면 반드시 사전에 알려드립니다.",
     },
     {
       num: "04",
       title: "개발 + 공유",
       desc: "실시간 진행 상황 공유. 데모 확인 후 피드백 반영.",
       status: "BUILD FASTER",
+      detail: "개발 과정을 실시간으로 공유합니다. 중간중간 데모를 확인하고 피드백을 주시면 바로 반영합니다. 완성 후 '이게 아닌데'가 없도록 함께 만들어갑니다.",
     },
     {
       num: "05",
       title: "납품 + 리포트",
       desc: "완성된 서비스 + 프로젝트 리포트 + 코드 인수인계.",
       status: "완료",
+      detail: "완성된 서비스를 실제 도메인에 배포한 상태로 전달합니다. 소스 코드 100% 인수인계, 프로젝트 리포트(문제 분석→해결→운영 가이드), 그리고 향후 확장 로드맵까지 포함됩니다.",
     },
   ];
+
+  const current = steps[activeStep];
 
   return (
     <section className="py-20 sm:py-28 bg-white">
@@ -1151,7 +1155,7 @@ function ProcessSystem() {
             의뢰부터 납품까지, 100% 온라인
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            모든 과정이 투명하게 공유됩니다. 진행 상황을 직접 확인하세요.
+            모든 과정이 투명하게 공유됩니다. 각 단계를 클릭해서 자세히 확인하세요.
           </p>
         </div>
 
@@ -1161,10 +1165,18 @@ function ProcessSystem() {
           <div className="hidden lg:block absolute top-8 left-0 right-0 h-0.5 bg-gray-200" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {steps.map((s) => (
-              <div key={s.num} className="relative text-center">
+            {steps.map((s, i) => (
+              <button
+                key={s.num}
+                onClick={() => setActiveStep(i)}
+                className={`relative text-center cursor-pointer transition-all ${
+                  activeStep === i ? "scale-105" : "opacity-70 hover:opacity-100"
+                }`}
+              >
                 {/* 넘버 원 */}
-                <div className="relative z-10 w-16 h-16 rounded-full bg-gray-900 text-white flex items-center justify-center text-lg font-black mx-auto mb-4">
+                <div className={`relative z-10 w-16 h-16 rounded-full flex items-center justify-center text-lg font-black mx-auto mb-4 transition-colors ${
+                  activeStep === i ? "bg-blue-600 text-white ring-4 ring-blue-100" : "bg-gray-900 text-white"
+                }`}>
                   {s.num}
                 </div>
                 <h4 className="font-bold text-gray-900 mb-1">{s.title}</h4>
@@ -1177,28 +1189,32 @@ function ProcessSystem() {
                 }`}>
                   {s.status}
                 </span>
-              </div>
+              </button>
             ))}
           </div>
         </div>
 
-        {/* 시스템 미리보기 (Coming Soon) */}
+        {/* 선택된 단계 상세 */}
         <div className="mt-16 bg-gray-50 rounded-2xl border border-gray-200 p-8 text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-gray-900 text-white flex items-center justify-center">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
-              </svg>
+            <div className={`w-10 h-10 rounded-xl text-white flex items-center justify-center font-bold ${
+              activeStep === 4 ? "bg-green-600" : "bg-blue-600"
+            }`}>
+              {current.num}
             </div>
-            <h3 className="text-lg font-bold text-gray-900">고객 대시보드</h3>
+            <h3 className="text-lg font-bold text-gray-900">{current.title}</h3>
+            <span className={`text-xs font-semibold px-2 py-1 rounded-full ${
+              current.status === "고객" ? "bg-blue-50 text-blue-600" :
+              current.status === "BUILD FASTER" ? "bg-gray-100 text-gray-600" :
+              current.status === "양측 합의" ? "bg-indigo-50 text-indigo-600" :
+              "bg-green-50 text-green-600"
+            }`}>
+              {current.status}
+            </span>
           </div>
-          <p className="text-sm text-gray-500 mb-6 max-w-lg mx-auto">
-            프로젝트 진행 상황, 마일스톤, 피드백, 결제 내역을 한 곳에서 확인할 수 있는 고객 전용 대시보드를 준비 중입니다.
+          <p className="text-sm text-gray-600 max-w-lg mx-auto leading-relaxed">
+            {current.detail}
           </p>
-          <div className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-500">
-            <div className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse" />
-            Coming Soon
-          </div>
         </div>
       </div>
     </section>

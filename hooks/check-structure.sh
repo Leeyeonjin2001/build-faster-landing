@@ -11,7 +11,7 @@ echo "=== 구조 체크 ==="
 # 1. 필수 코드 파일 존재
 echo -n "[1] 필수 코드 파일... "
 MISSING_CODE=""
-for f in "src/app/page.tsx" "src/app/layout.tsx" "src/app/globals.css" "src/styles/tokens.css"; do
+for f in "src/app/page.tsx" "src/app/layout.tsx" "src/app/globals.css"; do
   [ ! -f "$f" ] && MISSING_CODE="$MISSING_CODE $f"
 done
 if [ -z "$MISSING_CODE" ]; then
