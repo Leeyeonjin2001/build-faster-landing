@@ -324,13 +324,8 @@ function Deliverables() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
-
-        {/* 좌측: 리포트 (3/5) */}
-        <div className="lg:col-span-3">
-
-        {/* 탭 전환: 고객 시나리오 */}
-        <div className="flex gap-2 mb-6">
+        {/* 탭 전환: 고객 시나리오 — 전체 폭 기준 중앙 */}
+        <div className="flex gap-2 mb-8 justify-center">
           <button
             onClick={() => setActiveTab("problem")}
             className={`px-5 py-3 rounded-xl text-sm font-bold transition-all ${
@@ -352,6 +347,11 @@ function Deliverables() {
             만들고 싶은 서비스가 있어요
           </button>
         </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+
+        {/* 좌측: 리포트 (3/5) */}
+        <div className="lg:col-span-3">
 
         {/* 시나리오 A: 문제만 갖고 온 고객 */}
         {activeTab === "problem" && (
@@ -550,7 +550,7 @@ function Deliverables() {
         </div>{/* /좌측 끝 */}
 
         {/* 우측: 포함 항목 (2/5) */}
-        <div className="lg:col-span-2 space-y-4 lg:pt-[74px]">
+        <div className="lg:col-span-2 space-y-4">
           <h3 className="text-lg font-bold text-gray-900 mb-2">모든 프로젝트에 포함</h3>
           {[
             {
