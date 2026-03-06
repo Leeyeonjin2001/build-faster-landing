@@ -312,7 +312,7 @@ function Deliverables() {
   const [activeTab, setActiveTab] = useState<"problem" | "service">("problem");
 
   return (
-    <section id="result" className="py-20 sm:py-28 bg-gray-50">
+    <section id="result" className="py-16 sm:py-20 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-sm font-bold text-blue-600 tracking-wide uppercase mb-3">결과물</p>
